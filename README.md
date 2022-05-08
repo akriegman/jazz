@@ -29,9 +29,9 @@ If you are not using these then you are suffering needlesly. (In the browser, `C
 
 While jazz is running, the `j`, `x`, `z`, and `q` keys are repurposed to be combined with other keys to enter symbols that are harder to reach on the keyboard. These four keys are called the root keys. You can either press a root key once just to modify the next keypress, or you can hold a root key to modify several key presses. Here are the key pages for the four root keys, with the roots shown in red. You are intended to be able to enter any key combination you need without almost ever having to leave the keys shown in green:
 
-![The key maps for the four root keys](layouts/maps.png)
+![The key maps for the four root keys](layouts/pages.png)
 
-As you can see, every key on the keyboard is brought close to your fingers on a standard American QWERTY keyboard using this scheme. `j`, `x`, `z`, and `q` can be found in the `j` page for when you need to type them normally. `y` and `b` are also included because they are hard to reach normally. When you enter `Ctrl` or `Alt` from the `x` page it behaves like a root key, so it will modify the next character entered, or can be held to modify multiple keys.
+As you can see, every key on the keyboard is brought close to your fingers on a standard American QWERTY keyboard using this scheme. `j`, `x`, `z`, and `q` can be found in the `j` page for when you need to type them normally. `y` and `b` are also included because they are hard to reach normally. When you enter `Ctrl` or `Alt` from the `x` page or `Shift` from the `j` page it behaves like a root key, so it will modify the next character entered, or can be held to modify multiple keys.
 
 # Repository Structure
 
