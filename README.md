@@ -31,7 +31,7 @@ While jazz is running, the `j`, `x`, `z`, and `q` keys are repurposed to be comb
 
 ![The key maps for the four root keys](layouts/pages.png)
 
-As you can see, every key on the keyboard is brought close to your fingers on a standard American QWERTY keyboard using this scheme. `j`, `x`, `z`, and `q` can be found in the `j` page for when you need to type them normally. `y` and `b` are also included because they are hard to reach normally. When you enter `Ctrl` or `Alt` from the `x` page or `Shift` from the `j` page it behaves like a root key, so it will modify the next character entered, or can be held to modify multiple keys.
+As you can see, every key on the keyboard is brought close to your fingers on a standard American QWERTY keyboard using this scheme. `j`, `x`, `z`, and `q` can be found in the `j` page for when you need to type them normally. `y`, `b`, and `p` are also included because they are hard to reach normally, and `i` because it is hard to type `ik` or `ki`. When you enter `Ctrl` or `Alt` from the `x` page or `Shift` from the `j` page it behaves like a root key, so it will modify the next character entered, or can be held to modify multiple keys.
 
 # Repository Structure
 
