@@ -1,7 +1,5 @@
 #include <linux/input.h>
 #include <stdio.h>
-// #include <stdlib.h>
-// #include <unistd.h>
 
 int main(void) {
   setbuf(stdin, NULL), setbuf(stdout, NULL);

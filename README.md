@@ -10,10 +10,10 @@ Here are some hotkeys that everyone should know, whether or not you use Jazz. Th
 
 |||
 |---|---|
-|`Ctrl+Left`, `Ctrl+Right`|Move the cursor a full word left / right.|
-|`Ctrl+Backspace`, `Ctrl+Delete`|Delete a full word behind / in front of the cursor.|
-|`Home`, `End`|Jump to the start / end of the line.|
-|`Ctrl+Home`, `Ctrl+End`|Jump to the start / end of the document / text box.|
+|`Ctrl+Left`, `Ctrl+Right`|Move the cursor a full word left / right|
+|`Ctrl+Backspace`, `Ctrl+Delete`|Delete a full word behind / in front of the cursor|
+|`Home`, `End`|Jump to the start / end of the line|
+|`Ctrl+Home`, `Ctrl+End`|Jump to the start / end of the document / text box|
 
 These can also be combined with `Shift` to select text. The following are browser specific and are supported by most (all?) major browsers:
 
@@ -21,7 +21,8 @@ These can also be combined with `Shift` to select text. The following are browse
 |---|---|
 |`Ctrl+t`|Open a new tab|
 |`Ctrl+w`|Close the current tab|
-|`Alt+d`|Select all the text in the address bar.|
+|`Alt+d`|Select all the text in the address bar|
+|`Alt+Left`|Go back|
 
 If you are not using these then you are suffering needlesly. (In the browser, `Ctrl+Shift+t` and `Ctrl+n` are also useful, but I'd forgive you for not knowing them.)
 
