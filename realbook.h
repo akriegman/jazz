@@ -62,7 +62,7 @@ const std::unordered_map<key, key> X_PAGE = {
 
 const std::unordered_map<key, key> Z_PAGE = {
   {KEY_D         , KEY_1 | SHIFT},
-  {KEY_F         , KEY_B | SHIFT},
+  {KEY_F         , KEY_B        },
   {KEY_X         , KEY_2 | SHIFT},
   {KEY_C         , KEY_3 | SHIFT},
 
