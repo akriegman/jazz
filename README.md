@@ -30,20 +30,20 @@ While jazz is running, the `j`, `x`, `z`, and `q` keys are repurposed to be comb
 
 ![The key maps for the four root keys](layouts/pages.png)
 
-As you can see, every key on the keyboard is brought close to your fingers on a standard American QWERTY keyboard using this scheme. `j`, `x`, `z`, and `q` can be found in the `j` page for when you need to type them normally. `y`, `b`, and `p` are also included because they are hard to reach normally, and `i` because it is hard to type `ik` or `ki`.
+As you can see, every key on the keyboard is brought close to your fingers on a standard American QWERTY keyboard using this scheme. `x`, `z`, and `q` can be found in the `j` page for when you need to type them normally, and `j` in the `z` page. `y`, `b`, and `p` are also included because they are hard to reach normally, and `i` because the `ik` and `ki` digraphs are particularly difficult on a QWERTY keyboard. The positions of `y`, `b`, and `p` are based on some analysis of digraph frequency that I did.
 
 # Installation
 
 To install Jazz:
 1) Install [Interception Tools](https://gitlab.com/interception/linux/tools#installation)
 2) Clone this repository
-3) `sudo make install`. This will start Jazz, and make it start automatically when you turn on your computer. This will only change one file outside of the repository, which can easily be removed with `sudo make uninstall`, which will also stop Jazz. Interception tools has it's own Systemd service which Jazz simply hooks into.
+3) `sudo make install`. This will start Jazz, and make it start automatically when you turn on your computer. This will only change one file outside of the repository, which can easily be removed with `sudo make uninstall`, which will also stop Jazz. Interception tools has it's own Systemd service, and Jazz just adds itself as a plugin.
 
 You can stop Jazz at any time by typing `bye` using the actual `b` and `y` keys, or with `sudo systemctl stop udevmon.service`. You can then start it again with `sudo systemctl restart udevmon.service`, which you can bind to a hotkey of your choice.
 
 # Repository Structure
 
-The layouts folder contains keyboard layouts in a `json` format meant to be used with `keyboard-layout-editor.com`. Copy and paste the layouts into their editor to view or edit them. `evshow` is a simple test program that reads `input_event` structs on `stdin` and formats their contents to `stdout`.
+The layouts folder contains keyboard layouts in a `json` format meant to be used with `keyboard-layout-editor.com`. Copy and paste the layouts into their editor to view or edit them. `evshow` is a simple test program that reads `input_event` structs on `stdin` and formats their contents to `stdout`. The Julia folder contains the code I used to analyze the digraph frequency data, which was taken from ["Case-sensitive letter and bigram frequency counts from large-scale English corpora"](https://doi.org/10.3758%2Fbf03195586)
 
 <!-- # Extensions and Internationalization
 At the moment Jazz only works on Linux. I suspect that the best way to port it to Windows will be to rewrite it in AutoHotkey? I don't know what complications would arise in a port to Mac.
