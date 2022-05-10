@@ -87,16 +87,17 @@ int main(void) {
         default: bye = attack;
         }
 
-        if (event.code == KEY_B ||
-            event.code == KEY_Y) { // B and Y have been repurposed
-          cur_page = 0;
-          for (auto &m : modifiers) {
-            input_event rel = {.type = EV_KEY, .code = m.first, .value = 0};
-            fwrite(&rel, sizeof(rel), 1, stdout);
-          }
-          modifiers.clear();
+        // if (event.code == KEY_B ||
+        //     event.code == KEY_Y) { // B and Y have been repurposed
+        //   cur_page = 0;
+        //   for (auto &m : modifiers) {
+        //     input_event rel = {.type = EV_KEY, .code = m.first, .value = 0};
+        //     fwrite(&rel, sizeof(rel), 1, stdout);
+        //   }
+        //   modifiers.clear();
 
-        } else if (cur_page == 0) { // Normal typing
+        // } else
+        if (cur_page == 0) { // Normal typing
           if (REALBOOK.find(event.code) != REALBOOK.end()) {
             cur_page = event.code;
             root_state = attack;
