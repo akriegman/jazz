@@ -37,7 +37,7 @@ As you can see, every key on the keyboard is brought close to your fingers on a 
 To install Jazz:
 1) Install [Interception Tools](https://gitlab.com/interception/linux/tools#installation)
 2) Clone this repository
-3) `sudo make install`. This will start Jazz, and make it start automatically when you turn on your computer. This will only change one file outside of the repository, which can easily be removed with `sudo make uninstall`. Interception tools has it's own Systemd service which Jazz simply hooks into.
+3) `sudo make install`. This will start Jazz, and make it start automatically when you turn on your computer. This will only change one file outside of the repository, which can easily be removed with `sudo make uninstall`, which will also stop Jazz. Interception tools has it's own Systemd service which Jazz simply hooks into.
 
 You can stop Jazz at any time by typing `bye` using the actual `b` and `y` keys, or with `sudo systemctl stop udevmon.service`. You can then start it again with `sudo systemctl restart udevmon.service`, which you can bind to a hotkey of your choice.
 
