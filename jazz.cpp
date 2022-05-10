@@ -71,13 +71,32 @@ int main(void) {
   setbuf(stdin, NULL), setbuf(stdout, NULL);
 
   unordered_map<key, key> subs;
+  mod_state bye;
 
-  struct input_event event;
+  // printf("%x", 3 | 5 << 16);
+
+  input_event event;
   while (fread(&event, sizeof(event), 1, stdin) == 1) {
     if (event.type == EV_KEY) {
       if (event.value == 1) { // Key down
 
-        if (cur_page == 0) { // Normal typing
+        switch (event.code | bye << 16) {
+        case KEY_B | attack << 16: bye = sustain; break;
+        case KEY_Y | sustain << 16: bye = release; break;
+        case KEY_E | release << 16: exit(0); break;
+        default: bye = attack;
+        }
+
+        if (event.code == KEY_B ||
+            event.code == KEY_Y) { // B and Y have been repurposed
+          cur_page = 0;
+          for (auto &m : modifiers) {
+            input_event rel = {.type = EV_KEY, .code = m.first, .value = 0};
+            fwrite(&rel, sizeof(rel), 1, stdout);
+          }
+          modifiers.clear();
+
+        } else if (cur_page == 0) { // Normal typing
           if (REALBOOK.find(event.code) != REALBOOK.end()) {
             cur_page = event.code;
             root_state = attack;

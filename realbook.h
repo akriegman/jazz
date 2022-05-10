@@ -1,4 +1,4 @@
-// clang-format off
+#pragma once
 #include <linux/input.h>
 #include <unordered_map>
 
@@ -7,6 +7,7 @@ typedef __u16 key;
 #define SHIFT    0x1000
 #define MASK_KEY 0x0fff
 
+// clang-format off
 #define IS_MOD(code) code == KEY_LEFTSHIFT || code == KEY_RIGHTSHIFT || \
                      code == KEY_LEFTCTRL  || code == KEY_RIGHTCTRL  || \
                      code == KEY_LEFTALT   || code == KEY_RIGHTALT
@@ -40,71 +41,71 @@ const std::unordered_map<key, key> J_PAGE = {
 };
 
 const std::unordered_map<key, key> X_PAGE = {
-  {KEY_F         , KEY_RIGHTMETA},
-  {KEY_Z         , KEY_RIGHTCTRL},
-  {KEY_C         , KEY_RIGHTALT},
+  {KEY_F         , KEY_LEFTMETA },
+  {KEY_Z         , KEY_RIGHTALT },
+  {KEY_C         , KEY_RIGHTCTRL},
 
-  {KEY_U         , KEY_HOME},
-  {KEY_I         , KEY_PAGEDOWN},
-  {KEY_O         , KEY_PAGEUP},
-  {KEY_P         , KEY_END},
-  {KEY_J         , KEY_LEFT},
-  {KEY_K         , KEY_DOWN},
-  {KEY_L         , KEY_UP},
-  {KEY_SEMICOLON , KEY_RIGHT},
-  {KEY_N         , KEY_BACKSPACE},
-  {KEY_M         , KEY_DELETE},
-  {KEY_COMMA     , KEY_7|SHIFT},
-  {KEY_DOT       , KEY_8|SHIFT},
+  {KEY_U         , KEY_ESC      },
+  {KEY_I         , KEY_BACKSPACE},
+  {KEY_O         , KEY_DELETE   },
+  {KEY_H         , KEY_TAB      },
+  {KEY_J         , KEY_LEFT     },
+  {KEY_K         , KEY_DOWN     },
+  {KEY_L         , KEY_UP       },
+  {KEY_SEMICOLON , KEY_RIGHT    },
+  {KEY_N         , KEY_ENTER    },
+  {KEY_M         , KEY_HOME     },
+  {KEY_COMMA     , KEY_PAGEDOWN },
+  {KEY_DOT       , KEY_PAGEUP   },
+  {KEY_SLASH     , KEY_END      },
 };
 
 const std::unordered_map<key, key> Z_PAGE = {
-  {KEY_D         , KEY_ESC},
-  {KEY_X         , KEY_TAB},
-  {KEY_C         , KEY_ENTER},
+  {KEY_D         , KEY_7 | SHIFT},
+  {KEY_F         , KEY_8 | SHIFT},
+  {KEY_X         , KEY_0        },
+  {KEY_C         , KEY_1        },
 
-  {KEY_U         , KEY_0},
-  {KEY_I         , KEY_1},
-  {KEY_O         , KEY_2},
-  {KEY_P         , KEY_3},
-  {KEY_LEFTBRACE , KEY_4},
-  {KEY_H         , KEY_1|SHIFT},
-  {KEY_J         , KEY_2|SHIFT},
-  {KEY_K         , KEY_3|SHIFT},
-  {KEY_L         , KEY_4|SHIFT},
-  {KEY_SEMICOLON , KEY_5|SHIFT},
-  {KEY_APOSTROPHE, KEY_6|SHIFT},
-  {KEY_N         , KEY_5},
-  {KEY_M         , KEY_6},
-  {KEY_COMMA     , KEY_7},
-  {KEY_DOT       , KEY_8},
-  {KEY_SLASH     , KEY_9},
+  {KEY_U         , KEY_2        },
+  {KEY_I         , KEY_3        },
+  {KEY_O         , KEY_4        },
+  {KEY_H         , KEY_1 | SHIFT},
+  {KEY_J         , KEY_2 | SHIFT},
+  {KEY_K         , KEY_3 | SHIFT},
+  {KEY_L         , KEY_4 | SHIFT},
+  {KEY_SEMICOLON , KEY_5 | SHIFT},
+  {KEY_APOSTROPHE, KEY_6 | SHIFT},
+  {KEY_N         , KEY_5        },
+  {KEY_M         , KEY_6        },
+  {KEY_COMMA     , KEY_7        },
+  {KEY_DOT       , KEY_8        },
+  {KEY_SLASH     , KEY_9        },
 };
 
 const std::unordered_map<key, key> Q_PAGE = {
-  {KEY_W         , KEY_PREVIOUSSONG},
-  {KEY_E         , KEY_PLAYPAUSE},
-  {KEY_R         , KEY_NEXTSONG},
-  {KEY_S         , KEY_MUTE},
-  {KEY_D         , KEY_VOLUMEDOWN},
-  {KEY_F         , KEY_VOLUMEUP},
+  {KEY_W         , KEY_PREVIOUSSONG  },
+  {KEY_E         , KEY_PLAYPAUSE     },
+  {KEY_R         , KEY_NEXTSONG      },
+  {KEY_S         , KEY_MUTE          },
+  {KEY_D         , KEY_VOLUMEDOWN    },
+  {KEY_F         , KEY_VOLUMEUP      },
 
-  {KEY_U         , KEY_BRIGHTNESSDOWN},
-  {KEY_I         , KEY_BRIGHTNESSUP},
-  {KEY_O         , KEY_F1},
-  {KEY_P         , KEY_F2},
-  {KEY_LEFTBRACE , KEY_F3},
-  {KEY_H         , KEY_F4},
-  {KEY_J         , KEY_F5},
-  {KEY_K         , KEY_F6},
-  {KEY_L         , KEY_F7},
-  {KEY_SEMICOLON , KEY_F8},
-  {KEY_APOSTROPHE, KEY_F9},
-  {KEY_N         , KEY_F10},
-  {KEY_M         , KEY_F11},
-  {KEY_COMMA     , KEY_F12},
-  {KEY_DOT       , KEY_INSERT},
-  {KEY_SLASH     , KEY_PRINT},
+  {KEY_U         , KEY_BRIGHTNESSDOWN}, // Doesn't actually work :(
+  {KEY_I         , KEY_BRIGHTNESSUP  },
+  {KEY_O         , KEY_F1            },
+  {KEY_P         , KEY_F2            },
+  {KEY_LEFTBRACE , KEY_F3            },
+  {KEY_H         , KEY_F4            },
+  {KEY_J         , KEY_F5            },
+  {KEY_K         , KEY_F6            },
+  {KEY_L         , KEY_F7            },
+  {KEY_SEMICOLON , KEY_F8            },
+  {KEY_APOSTROPHE, KEY_F9            },
+  {KEY_N         , KEY_F10           },
+  {KEY_M         , KEY_F11           },
+  {KEY_COMMA     , KEY_F12           },
+  {KEY_DOT       , KEY_INSERT        },
+  {KEY_SLASH     , KEY_PRINT         },
 };
 
 const std::unordered_map<key, std::unordered_map<key, key>> REALBOOK = {
@@ -113,4 +114,3 @@ const std::unordered_map<key, std::unordered_map<key, key>> REALBOOK = {
     {KEY_Z, Z_PAGE},
     {KEY_Q, Q_PAGE},
 };
-// clang-format on
