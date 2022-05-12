@@ -41,7 +41,7 @@ If you are not using these then you are suffering needlesly. (In the browser, `C
 
 ![The key maps for the four root keys](layouts/pages.png)
 
-As you can see, every key on the keyboard is brought close to your fingers on a standard American QWERTY keyboard using this scheme. `x`, `z`, and `q` can be found in the `j` page for when you need to type them normally, and `j` in the `z` page. `y`, `b`, and `p` are also included because they are hard to reach normally, and `i` because the `ik` and `ki` digraphs are particularly difficult on a QWERTY keyboard. The positions of `y`, `b`, and `p` are based on some analysis of digraph frequency that I did. This layout is unfinished and I will likely continue to change it for a while, and of course you can create your own layout to use with Jazz.
+As you can see, every key on the keyboard is brought close to your fingers on a standard American QWERTY keyboard using this scheme. `x`, `z`, and `q` can be found in the `j` page for when you need to type them normally, and `j` in the `z` page. `y`, `b`, and `p` are also included because they are hard to reach normally, and `i` because the `ik` and `ki` digraphs are particularly difficult on a QWERTY keyboard. The positions of `y`, `b`, and `p` are based on some analysis of digraph frequency that I did. This layout is unfinished and I will likely continue to change it for a while, and of course you can create your own layout to use with Jazz by editing `realbook.h`.
 
 # Installation
 
@@ -51,6 +51,10 @@ To install Jazz:
 3) `sudo make install`. This will start Jazz, and make it start automatically when you turn on your computer. This will only change one file outside of the repository, which can easily be removed with `sudo make uninstall`, which will also stop Jazz. Interception tools has it's own Systemd service, and Jazz just adds itself as a plugin.
 
 You can stop Jazz at any time by typing `bye` using the actual `b` and `y` keys, or with `sudo systemctl stop udevmon.service`. You can then start it again with `sudo systemctl restart udevmon.service`, which you can bind to a hotkey of your choice.
+
+# Related work
+
+[interception-k2k](https://github.com/zsugabubus/interception-k2k) is another interception tools plugin which is very similar to Jazz. [interception-vimproved](https://gitlab.com/interception/linux/tools#some-community-plugins) is also similar. Also check out the other [Interception Tools plugins](https://gitlab.com/interception/linux/tools#official-plugins).
 
 # Repository Structure
 
