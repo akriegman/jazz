@@ -41,7 +41,7 @@ If you are not using these then you are suffering needlesly. (In the browser, `C
 
 ![The key maps for the four root keys](layouts/pages.png)
 
-As you can see, every key on the keyboard is brought close to your fingers on a standard American QWERTY keyboard using this scheme. `x`, `z`, and `q` can be found in the `j` page for when you need to type them normally, and `j` in the `z` page. `y`, `b`, and `p` are also included because they are hard to reach normally, and `i` because the `ik` and `ki` digraphs are particularly difficult on a QWERTY keyboard. The positions of `y`, `b`, and `p` are based on some analysis of digraph frequency that I did. This layout is unfinished and I will likely continue to change it for a while, and of course you can create your own layout to use with Jazz by editing `realbook.h`.
+As you can see, every key on the keyboard is brought close to your fingers on a standard American QWERTY keyboard using this scheme. `x`, `z`, and `q` can be found in the `j` page for when you need to type them normally, and `j` in the `z` page. `y`, `b`, and `p` are also included because they are hard to reach normally, and `i` because the `ik` and `ki` digraphs are particularly difficult on a QWERTY keyboard. The positions of `y`, `b`, and `p` are based on some analysis of digraph frequency that I did. This layout is unfinished and I will likely continue to change it for a while, and of course you can create your own layout to use with Jazz by editing `realbook.h`. Currently the `q` page is off by default, and can be turned on by editing `realbook.h`.
 
 # Installation
 
