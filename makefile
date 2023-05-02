@@ -7,6 +7,9 @@ jazz: jazz.cpp realbook.h
 evshow: evshow.cpp
 	g++ -Wall evshow.cpp -o evshow
 
+fmt:
+	clang-format -i *.cpp *.h
+
 clean:
 	rm jazz evshow
 

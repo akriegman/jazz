@@ -4,7 +4,7 @@
 
 typedef __u16 key;
 
-#define SHIFT    0x1000
+#define SHIFT 0x1000
 #define MASK_KEY 0x0fff
 
 // clang-format off
@@ -34,17 +34,20 @@ const std::unordered_map<key, key> J_PAGE = {
   {KEY_K         , KEY_9          | SHIFT},
   {KEY_L         , KEY_0          | SHIFT},
   {KEY_SEMICOLON , KEY_BACKSLASH  | SHIFT},
+  {KEY_N         , KEY_RIGHTCTRL         },
   {KEY_COMMA     , KEY_LEFTBRACE         },
   {KEY_DOT       , KEY_RIGHTBRACE        },
   {KEY_SLASH     , KEY_BACKSLASH         },
 };
 
 const std::unordered_map<key, key> X_PAGE = {
-  {KEY_S         , KEY_LEFTMETA          },
+  {KEY_R         , KEY_PLAYPAUSE         },
+  {KEY_T         , KEY_NEXTSONG          },
+  {KEY_A         , KEY_LEFTMETA          },
+  {KEY_S         , KEY_ESC               },
   {KEY_F         , KEY_ENTER             },
-  {KEY_Z         , KEY_RIGHTALT          },
+  {KEY_Z         , KEY_LEFTALT           },
   {KEY_C         , KEY_RIGHTCTRL         },
-  {KEY_V         , KEY_ESC               },
 
   {KEY_I         , KEY_BACKSPACE         },
   {KEY_O         , KEY_DELETE            },
@@ -52,32 +55,31 @@ const std::unordered_map<key, key> X_PAGE = {
   {KEY_J         , KEY_UP                },
   {KEY_K         , KEY_LEFT              },
   {KEY_L         , KEY_RIGHT             },
-  {KEY_SEMICOLON , KEY_VOLUMEUP          },
+  // {KEY_SEMICOLON , KEY_VOLUMEUP          },
   {KEY_N         , KEY_PAGEDOWN          },
   {KEY_M         , KEY_DOWN              },
   {KEY_COMMA     , KEY_HOME              },
   {KEY_DOT       , KEY_END               },
-  {KEY_SLASH     , KEY_VOLUMEDOWN        },
+  // {KEY_SLASH     , KEY_VOLUMEDOWN        },
   {KEY_SPACE     , KEY_TAB               },
 };
 
 const std::unordered_map<key, key> Z_PAGE = {
-  {KEY_E         , KEY_PLAYPAUSE         },
-  {KEY_R         , KEY_NEXTSONG          },
+  {KEY_E         , KEY_VOLUMEDOWN        },
+  {KEY_R         , KEY_VOLUMEUP          },
   {KEY_D         , KEY_X                 },
   {KEY_F         , KEY_Z                 },
   {KEY_X         , KEY_I                 },
   {KEY_C         , KEY_J                 },
 
-  {KEY_U         , KEY_X                 },
+  {KEY_U         , KEY_Z                 },
   {KEY_I         , KEY_Y                 },
-  {KEY_O         , KEY_Z                 },
-  {KEY_H         , KEY_RIGHTSHIFT        },
-  {KEY_J         , KEY_0                 },
-  {KEY_K         , KEY_1                 },
-  {KEY_L         , KEY_2                 },
-  {KEY_SEMICOLON , KEY_3                 },
-  {KEY_APOSTROPHE, KEY_4                 },
+  {KEY_O         , KEY_X                 },
+  {KEY_H         , KEY_0                 },
+  {KEY_J         , KEY_1                 },
+  {KEY_K         , KEY_2                 },
+  {KEY_L         , KEY_3                 },
+  {KEY_SEMICOLON , KEY_4                 },
   {KEY_N         , KEY_5                 },
   {KEY_M         , KEY_6                 },
   {KEY_COMMA     , KEY_7                 },

@@ -1,4 +1,5 @@
 - JOB: intercept -g $DEVNODE | INSTALL_DIR/jazz | uinput -d $DEVNODE
   DEVICE:
+#    LINK: /dev/input/by-path/platform-i8042-serio-0-event-kbd
     EVENTS:
       EV_KEY: [KEY_J]

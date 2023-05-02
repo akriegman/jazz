@@ -25,10 +25,17 @@ static unordered_map<key, mod_state> modifiers;
 static key cur_page = 0;
 static mod_state root_state;
 
+// Write an event to stdout, with the necessary SYN event and delay.
+void write(const input_event &event) {
+  fwrite(&event, sizeof(event), 1, stdout);
+  fwrite(&syn, sizeof(event), 1, stdout);
+  usleep(10000);
+}
+
 // Emit a keypress and do associated state updates
 // for the root and modifiers.
 void emit(const input_event &event) {
-  fwrite(&event, sizeof(event), 1, stdout);
+  write(event);
 
   if (IS_MOD(event.code)) {
 
@@ -41,28 +48,20 @@ void emit(const input_event &event) {
     auto itr = modifiers.begin();
     while (itr != modifiers.end()) {
       switch (itr->second) {
-      case attack:
-        itr->second = sustain;
-      case sustain:
-        itr++;
-        break;
+      case attack: itr->second = sustain;
+      case sustain: itr++; break;
       case release:
         input_event rel = {.type = EV_KEY, .code = itr->first, .value = 0};
-        fwrite(&rel, sizeof(rel), 1, stdout);
+        write(rel);
         itr = modifiers.erase(itr);
         break;
       }
     }
 
     switch (root_state) {
-    case attack:
-      root_state = sustain;
-      break;
-    case sustain:
-      break;
-    case release:
-      cur_page = 0;
-      break;
+    case attack: root_state = sustain; break;
+    case sustain: break;
+    case release: cur_page = 0; break;
     }
   }
 }
@@ -80,12 +79,12 @@ int main(void) {
     if (event.type == EV_KEY) {
       if (event.value == 1) { // Key down
 
-        switch (event.code | bye << 16) {
-        case KEY_B | attack << 16: bye = sustain; break;
-        case KEY_Y | sustain << 16: bye = release; break;
-        case KEY_E | release << 16: exit(0); break;
-        default: bye = attack;
-        }
+        // switch (event.code | bye << 16) {
+        // case KEY_B | attack << 16: bye = sustain; break;
+        // case KEY_Y | sustain << 16: bye = release; break;
+        // case KEY_E | release << 16: exit(0); break;
+        // default: bye = attack;
+        // }
 
         // if (event.code == KEY_B ||
         //     event.code == KEY_Y) { // B and Y have been repurposed
@@ -118,26 +117,17 @@ int main(void) {
             // then we still have to progress the root state.
             if (IS_MOD(fake_code))
               switch (root_state) {
-              case attack:
-                root_state = sustain;
-                break;
-              case sustain:
-                break;
-              case release:
-                cur_page = 0;
-                break;
+              case attack: root_state = sustain; break;
+              case sustain: break;
+              case release: cur_page = 0; break;
               }
           }
 
           if (event.code & SHIFT) {
             event.code ^= SHIFT;
-            fwrite(&shift_down, sizeof(event), 1, stdout);
-            // fwrite(&syn, sizeof(event), 1, stdout);
-            // usleep(20000);
+            write(shift_down);
             emit(event);
-            // fwrite(&syn, sizeof(event), 1, stdout);
-            // usleep(20000);
-            fwrite(&shift_up, sizeof(event), 1, stdout);
+            write(shift_up);
           } else {
             emit(event);
           }
@@ -146,14 +136,9 @@ int main(void) {
 
         if (event.code == cur_page) { // Root state transitions
           switch (root_state) {
-          case attack:
-            root_state = release;
-            break;
-          case sustain:
-            cur_page = 0;
-            break;
-          case release:
-            break;
+          case attack: root_state = release; break;
+          case sustain: cur_page = 0; break;
+          case release: break;
           }
 
         } else {
@@ -166,25 +151,22 @@ int main(void) {
           if (modifiers.find(event.code) != // Modifier state transitions
               modifiers.end()) {
             switch (modifiers[event.code]) {
-            case attack:
-              modifiers[event.code] = release;
-              break;
+            case attack: modifiers[event.code] = release; break;
             case sustain:
-              fwrite(&event, sizeof(event), 1, stdout);
+              write(event);
               modifiers.erase(event.code);
               break;
-            case release:
-              break;
+            case release: break;
             }
 
           } else // Normal or substituted
-            fwrite(&event, sizeof(event), 1, stdout);
+            write(event);
         }
       }
     } else if (event.type == EV_MSC && event.code == MSC_SCAN) {
       // pass
     } else {
-      fwrite(&event, sizeof(event), 1, stdout);
+      write(event);
     }
   }
 }
