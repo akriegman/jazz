@@ -54,7 +54,7 @@ You can stop Jazz at any time by typing `bye` using the actual `b` and `y` keys,
 
 # Related work
 
-[interception-k2k](https://github.com/zsugabubus/interception-k2k) is another interception tools plugin which is very similar to Jazz. [interception-vimproved](https://gitlab.com/interception/linux/tools#some-community-plugins) is also similar. Also check out the other [Interception Tools plugins](https://gitlab.com/interception/linux/tools#official-plugins).
+[interception-k2k](https://github.com/zsugabubus/interception-k2k) is another interception tools plugin which is very similar to Jazz. [interception-vimproved](https://gitlab.com/interception/linux/tools#some-community-plugins) is also similar. Also check out the other [Interception Tools plugins](https://gitlab.com/interception/linux/tools#official-plugins). The main difference between Jazz and these alternatives is that Jazz lets you _press_ modifier keys instead of holding them.
 
 # Repository Structure
 
