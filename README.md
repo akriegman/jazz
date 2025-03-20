@@ -104,6 +104,8 @@ interception tools plugin which is very similar to Jazz.
 [interception-vimproved](https://gitlab.com/interception/linux/tools#some-community-plugins)
 is also similar. Also check out the other
 [Interception Tools plugins](https://gitlab.com/interception/linux/tools#official-plugins).
+The main difference between Jazz and these alternatives is that Jazz lets you
+_press_ modifier keys instead of holding them.
 
 # Repository Structure
 
